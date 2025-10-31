@@ -1,0 +1,45 @@
+{
+  "name": "@liquidlink-lab/liquidlink-dashboard-sdk",
+  "version": "0.1.0",
+  "description": "Liquidlink Dashboard SDK with a typed request builder and unified APIs.",
+  "author": "liquidlink.io@gmail.com",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "dependencies": {
+    "undici": "^7.16.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Liquidlink-Lab/liquidlink-dashboard-sdk.git"
+  },
+  "scripts": {
+    "lint": "biome check",
+    "format": "biome format --write",
+    "typecheck": "tsc --noEmit",
+    "check": "bun run lint && bun run typecheck",
+    "build": "tsup src/index.ts --dts --format esm,cjs --out-dir dist",
+    "clean": "rm -rf dist",
+    "prepare": "bun run clean && bun run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.2",
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "^24.9.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  }
+}
